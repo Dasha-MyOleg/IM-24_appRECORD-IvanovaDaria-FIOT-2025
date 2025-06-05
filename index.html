@@ -48,6 +48,18 @@
             border: 1px solid #aaa;
             cursor: pointer;
         }
+
+        .sidebar .sub-button {
+        margin-left: 15px;
+        padding: 8px;
+        font-size: 13px;
+        background-color: white;
+        border: 1px solid #aaa;
+        cursor: pointer;
+        display: block;
+        width: 90%;
+        }   
+
         .content {
             flex-grow: 1;
             padding: 20px;
@@ -60,7 +72,7 @@
         }
 
 
-ч
+
 
 
 
@@ -140,17 +152,38 @@
             ];
         }
 
+        if (labId === "lab3") {
+            buttons = [
+                { id: "meta3", label: "Тема, мета, місце" },
+                { id: "task1", label: "ЗАВДАННЯ №1" },
+                { id: "task2", label: "ЗАВДАННЯ №2" },
+                { id: "fixed-table", label: "Фіксована таблична верстка", sub: true },
+                { id: "fluid-table", label: "Гумова таблична верстка", sub: true },
+                { id: "fixed-block", label: "Фіксована блокова верстка", sub: true },
+                { id: "fluid-block", label: "Гумова блокова верстка", sub: true },
+                { id: "task3", label: "ЗАВДАННЯ №3 FLEXBOX" },
+                { id: "flexbox-preview", label: "Зовнішній вигляд сторінки", sub: true },
+                { id: "flexbox-html", label: "HTML-код", sub: true },
+                { id: "flexbox-css", label: "CSS-код сторінки", sub: true },
+                { id: "conclusion3", label: "Висновки до ЛР №3" }
+            ];
+        }
+
         if (buttons.length > 0) {
-            sidebar.classList.remove("hidden"); // показати
+            sidebar.classList.remove("hidden");
             for (let btn of buttons) {
                 const b = document.createElement("button");
                 b.textContent = btn.label;
                 b.onclick = () => scrollToSection(btn.id);
+                if (btn.sub) {
+                    b.classList.add("sub-button"); // Стиль для підгруп
+                }
                 sidebar.appendChild(b);
             }
         } else {
-            sidebar.classList.add("hidden"); // приховати
+            sidebar.classList.add("hidden");
         }
+
     }
 
     // Виклик для першої лабораторної (щоб відразу показувалось)
@@ -345,7 +378,149 @@
 
 
 
-            <div id="lab3" class="section">Лабораторна робота №3: (порожня)</div>
+            <div id="lab3" class="section">
+                <h1 id="meta3">Лабораторна робота №3.1</h1>
+                <p><strong>Тема:</strong> Верстка HTML-документу. Блокова верстка. Верстка засобами CSS та FLEXBOX.</p>
+
+                <p><strong>Мета:</strong></p>
+                <ul>
+                    <li>Опанувати основи верстки сторінок з використанням CSS.</li>
+                    <li>Засвоїти особливості табличної, блокової (float) та Flexbox-верстки.</li>
+                    <li>Розвинути навички побудови адаптивних макетів.</li>
+                </ul>
+
+                <p><strong>WEB-застосунок:</strong> <a href="https://dasha-myoleg.github.io/IM-24_appWEB-IvanovaDaria-FIOT-2025/" target="_blank">Жива сторінка</a></p>
+                <p><strong>Звітний HTML-документ:</strong> <a href="https://dasha-myoleg.github.io/IM-24_appRECORD-IvanovaDaria-FIOT-2025/" target="_blank">Жива сторінка</a></p>
+
+                <h2 id="task1">ЗАВДАННЯ №1: Розробка макету сайту</h2>
+                <p>У якості типу макету використано <strong>блочну верстку</strong>. Основна концепція — <em>адаптивне компонування сторінки за допомогою блоків і CSS-властивостей</em>.</p>
+
+                <p><strong>Скріншот головної сторінки:</strong></p>
+                <img src="img/main-screenshot.png" alt="Скрін головної сторінки" width="500">
+
+                <h3>HTML-код головної сторінки (фрагмент):</h3>
+                <pre>
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;title&gt;DragonCollect&lt;/title&gt;
+                &lt;link rel="stylesheet" href="style.css"&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;header&gt;...&lt;/header&gt;
+                &lt;main&gt;...&lt;/main&gt;
+                &lt;footer&gt;...&lt;/footer&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+                </pre>
+
+                <h2 id="task2">ЗАВДАННЯ №2: Таблична та блокова верстка</h2>
+                <p>У цьому завданні реалізовано чотири варіанти верстки макету, зокрема:</p>
+                <ul>
+                    <li><strong>Фіксована таблична верстка</strong> — жорстка ширина колонок у пікселях.</li>
+                    <li><strong>Гумова таблична верстка</strong> — адаптація ширини до розміру екрана.</li>
+                    <li><strong>Фіксована блокова верстка</strong> — розміщення елементів з використанням float з фіксованими розмірами.</li>
+                    <li><strong>Гумова блокова верстка</strong> — плаваючі блоки з відсотковими розмірами.</li>
+                </ul>
+                <p><strong>Приклади реалізації:</strong></p>
+
+                <h3 id="fixed-table">Фіксована таблична верстка</h3>
+                <pre>
+            &lt;table style="width: 600px; border: 1px solid black;"&gt;
+            &lt;tr&gt;&lt;th&gt;Назва&lt;/th&gt;&lt;th&gt;Частина&lt;/th&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;Беззубик&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;
+            &lt;/table&gt;
+                </pre>
+
+                <h3 id="fluid-table">Гумова таблична верстка</h3>
+                <pre>
+            &lt;table style="width: 100%; border: 1px solid black;"&gt;
+            &lt;tr&gt;&lt;th&gt;Назва&lt;/th&gt;&lt;th&gt;Частина&lt;/th&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;Астрід&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;/tr&gt;
+            &lt;/table&gt;
+                </pre>
+
+                <h3 id="fixed-block">Фіксована блокова верстка (float)</h3>
+                <pre>
+            &lt;div style="width: 600px;"&gt;
+            &lt;div style="float: left; width: 300px; height: 100px; background: #ccc;"&gt;Лівий блок&lt;/div&gt;
+            &lt;div style="float: right; width: 300px; height: 100px; background: #aaa;"&gt;Правий блок&lt;/div&gt;
+            &lt;/div&gt;
+                </pre>
+
+                <h3 id="fluid-block">Гумова блокова верстка (float)</h3>
+                <pre>
+            &lt;div style="width: 100%;"&gt;
+            &lt;div style="float: left; width: 50%; height: 100px; background: #ccc;"&gt;Лівий блок&lt;/div&gt;
+            &lt;div style="float: right; width: 50%; height: 100px; background: #aaa;"&gt;Правий блок&lt;/div&gt;
+            &lt;/div&gt;
+                </pre>
+
+                <h2 id="task3">ЗАВДАННЯ №3: Верстка з використанням FLEXBOX (Варіант №5)</h2>
+                <p><strong>Умова:</strong> реалізувати макет з кількома горизонтальними блоками, розташованими згідно з заданим зразком.</p>
+                <p><strong>Результат:</strong></p>
+                <img src="img/Screenshot_lab3.1_3.png" alt="Flexbox варіант 5" width="800">
+
+                <h3>HTML-код (фрагмент):</h3>
+                <pre>
+            &lt;div class="container"&gt;
+                &lt;header&gt;Шапка сайту&lt;/header&gt;
+                &lt;main&gt;
+                    &lt;div class="row"&gt;
+                        &lt;div class="block"&gt;Блок 1&lt;/div&gt;
+                        &lt;div class="block"&gt;Блок 2&lt;/div&gt;
+                        &lt;div class="block"&gt;Блок 3&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/main&gt;
+                &lt;footer&gt;Підвал&lt;/footer&gt;
+            &lt;/div&gt;
+                </pre>
+
+                <h3>CSS-код (фрагмент):</h3>
+                <pre>
+            .container {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .row {
+                display: flex;
+                justify-content: space-between;
+                margin: 10px 0;
+            }
+
+            .block {
+                flex: 1;
+                margin: 0 10px;
+                padding: 20px;
+                background-color: #e0e0e0;
+                text-align: center;
+            }
+                </pre>
+
+                <h2 id="conclusion3">Висновки до Лабораторної роботи №3</h2>
+                <ul>
+                    <li><strong>Таблична верстка</strong> дозволяє точно розміщувати елементи, але є малогнучкою та складною для адаптації під мобільні пристрої.</li>
+                    <li><strong>Блокова верстка (float)</strong> краще підходить для створення адаптивного дизайну, проте вимагає ручного очищення потоків і є менш інтуїтивною.</li>
+                    <li><strong>Flexbox</strong> — сучасна потужна технологія, яка значно спрощує розміщення, вирівнювання та адаптацію елементів у макеті, особливо при створенні динамічних сіток.</li>
+                    <li>Порівняння підходів дозволило глибше зрозуміти їх сильні й слабкі сторони та обрати найбільш ефективний метод для сучасної веб-розробки.</li>
+                </ul>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <div id="lab4" class="section">Лабораторна робота №4: (порожня)</div>
             <div id="lab5" class="section">Лабораторна робота №5: (порожня)</div>
             <div id="lab6" class="section">Лабораторна робота №6: (порожня)</div>

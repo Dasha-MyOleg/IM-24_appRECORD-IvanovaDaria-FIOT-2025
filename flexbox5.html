@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Завдання 3 - Варіант 5 (Flexbox)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .section {
+      border: 2px solid red;
+      padding: 10px;
+    }
+
+    .section.row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .section.column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .flex-half {
+      flex: 1;
+      border: 2px solid red;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: black;
+      color: white;
+      padding: 10px;
+    }
+
+    .footer .socials {
+      display: flex;
+      gap: 10px;
+    }
+
+    .footer .socials span {
+      background: white;
+      color: black;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- Верхній блок з логотипами -->
+  <div class="section">
+    <h2>Що ви опануєте?</h2>
+    <div class="section row">
+      <div class="flex-half">HTML/CSS</div>
+      <div class="flex-half">JS</div>
+      <div class="flex-half">React</div>
+      <div class="flex-half">Redux</div>
+      <div class="flex-half">TS</div>
+      <div class="flex-half">Angular</div>
+      <div class="flex-half">GitHub</div>
+    </div>
+  </div>
+
+  <!-- Центральний блок: жінка + переваги -->
+  <div class="section row">
+    <div class="flex-half">[Зображення жінки]</div>
+    <div class="flex-half">
+      <p>✔ НАВІТЬ У ЗРІЛОМУ ВІЦІ</p>
+      <p>✔ НАВІТЬ БЕЗ ЗНАННЯ АНГЛІЙСЬКОЇ</p>
+      <p>✔ НАВІТЬ БЕЗ ОСВІТИ</p>
+      <p>✔ НАВІТЬ БЕЗ ЗНАНЬ ПРОГРАМУВАННЯ</p>
+    </div>
+  </div>
+
+  <!-- Курс Java + Опис -->
+  <div class="section column">
+    <h2>Курс програмування JAVA з працевлаштуванням:</h2>
+    <div class="section row">
+      <div class="flex-half">[Інше зображення жінки]</div>
+      <div class="flex-half">
+        <ul>
+          <li>Стажування в IT-компанії</li>
+          <li>Три випускних проекти</li>
+          <li>Інтенсивність</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Футер -->
+  <div class="footer">
+    <span>© 2021</span>
+    <div class="socials">
+      <span>VK</span>
+      <span>Telegram</span>
+      <span>Instagram</span>
+      <span>GitHub</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
