@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Звіти з лабораторних робіт</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .lab-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            background-color: #eee;
+            padding: 10px;
+        }
+        .lab-buttons button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: 1px solid #aaa;
+            background-color: white;
+            cursor: pointer;
+        }
+        .container {
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            padding: 15px;
+            background-color: #f7f7f7;
+            border-right: 1px solid #ccc;
+        }
+        .sidebar button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #aaa;
+            cursor: pointer;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ</h1>
+        <p>З дисципліни «Web-орієнтовані технології. Основи Frontend та Backend розробок»</p>
+        <p>Студентка групи IM-24 Іванова Дар'я </p>
+    </header>
+
+    <div class="lab-buttons">
+        <button onclick="showSection('lab1')">Лабораторна робота №1</button>
+        <button onclick="showSection('lab2')">Лабораторна робота №2</button>
+        <button onclick="showSection('lab3')">Лабораторна робота №3</button>
+        <button onclick="showSection('lab4')">Лабораторна робота №4</button>
+        <button onclick="showSection('lab5')">Лабораторна робота №5</button>
+        <button onclick="showSection('lab6')">Лабораторна робота №6</button>
+        <button onclick="showSection('lab7')">Лабораторна робота №7</button>
+        <button onclick="showSection('lab8')">Лабораторна робота №8</button>
+        <button onclick="showSection('lab9')">Лабораторна робота №9</button>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <button onclick="scrollToSection('desc')">Опис предметного середовища</button>
+            <button onclick="scrollToSection('meta')">Тема, мета, місце</button>
+            <button onclick="scrollToSection('structure')">СТРУКТУРА ДОКУМЕНТА</button>
+            <button onclick="scrollToSection('table')">HTML-код ТАБЛИЦІ</button>
+            <button onclick="scrollToSection('form')">HTML-код ФОРМИ</button>
+            <button onclick="scrollToSection('image')">HTML-код ЗОБРАЖЕННЯ</button>
+            <button onclick="scrollToSection('conclusion')">ВИСНОВКИ</button>
+        </div>
+        <div class="content">
+            <div id="lab1" class="section active">
+                <h2 id="desc">Опис предметного середовища</h2>
+                <p>У цій лабораторній роботі розроблено вебзастосунок <strong>DragonCollect</strong> — онлайн-каталог для колекціонерів фігурок з мультфільму "Як приборкати дракона". Мета — допомогти колекціонерам візуально ідентифікувати свої фігурки, порівнювати схожі моделі та відмічати, які екземпляри вже є у колекції.</p>
+                <p>Інтерфейс дозволяє переглядати моделі за частинами мультфільму, додає можливість вибору "маю / не маю" для кожної фігурки, а також адаптується під розмір екрану.</p>
+
+                <h2 id="meta">Тема, мета, місце</h2>
+                <p><strong>Тема:</strong> Структура HTML-документа. Вибір предметної галузі. GitHub. Репозиторії.</p>
+                <p><strong>Мета:</strong> Придбати практичні навички роботи з HTML, формами, таблицями, зображеннями, списками, репозиторіями на GitHub.</p>
+                <p><strong>WEB-застосунок:</strong> <a href="https://dasha-myoleg.github.io/IM-24_appWEB-IvanovaDaria-FIOT-2025/" target="_blank">https://dasha-myoleg.github.io/IM-24_appWEB-IvanovaDaria-FIOT-2025/</a></p>
+
+                <h2 id="structure">СТРУКТУРА ГОЛОВНОЇ СТОРІНКИ</h2>
+                <ul>
+                    <li>Заголовок сайту + логотип</li>
+                    <li>Кнопки фільтрації по частинах мультфільму</li>
+                    <li>Сітка фігурок у вигляді карток з підписами</li>
+                    <li>Чекбокси "Маю / Не маю" з підрахунком</li>
+                    <li>Адаптивний дизайн для різних пристроїв</li>
+                </ul>
+
+                <h2 id="table">HTML-код таблиці</h2>
+                <pre>
+&lt;table&gt;
+  &lt;tr&gt;&lt;th&gt;Назва&lt;/th&gt;&lt;th&gt;Частина&lt;/th&gt;&lt;th&gt;Стан&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Беззубик&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;Маю&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+                </pre>
+                <p><strong>Теорія:</strong> Таблиці створюються тегами &lt;table&gt;, &lt;tr&gt;, &lt;td&gt;, &lt;th&gt;. Атрибути: border, cellpadding, cellspacing, colspan, rowspan.</p>
+
+                <h2 id="form">HTML-код форми</h2>
+                <pre>
+&lt;form&gt;
+  &lt;label&gt;Пошук фігурки:&lt;/label&gt;
+  &lt;input type="text" placeholder="Назва..."&gt;
+  &lt;button&gt;Знайти&lt;/button&gt;
+&lt;/form&gt;
+                </pre>
+                <p><strong>Теорія:</strong> Форму задають тегом &lt;form&gt;, поля — &lt;input&gt;, кнопки — &lt;button&gt;, та &lt;label&gt; для підписів.</p>
+
+                <h2 id="image">HTML-код зображення</h2>
+                <pre>
+&lt;img src="img/toothless.png" alt="Беззубик" width="200"&gt;
+                </pre>
+                <p><strong>Теорія:</strong> Зображення додається тегом &lt;img&gt;. Обов'язкові атрибути: src (шлях), alt (опис), опціональні: width, height, title.</p>
+
+                <h2 id="conclusion">Висновки</h2>
+                <ul>
+                    <li>Опановано структуру HTML-документів</li>
+                    <li>Створено макет у Figma</li>
+                    <li>Реалізовано сайт із застосуванням тегів таблиць, списків, форм та зображень</li>
+                    <li>Оформлено репозиторій GitHub та живу сторінку</li>
+                    <li>Підготовлено звітну HTML-сторінку з повним описом</li>
+                </ul>
+            </div>
+
+            <div id="lab2" class="section">Лабораторна робота №2: (порожня)</div>
+            <div id="lab3" class="section">Лабораторна робота №3: (порожня)</div>
+            <div id="lab4" class="section">Лабораторна робота №4: (порожня)</div>
+            <div id="lab5" class="section">Лабораторна робота №5: (порожня)</div>
+            <div id="lab6" class="section">Лабораторна робота №6: (порожня)</div>
+            <div id="lab7" class="section">Лабораторна робота №7: (порожня)</div>
+            <div id="lab8" class="section">Лабораторна робота №8: (порожня)</div>
+            <div id="lab9" class="section">Лабораторна робота №9: (порожня)</div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
