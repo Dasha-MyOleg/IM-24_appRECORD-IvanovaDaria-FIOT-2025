@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №4 — Об'єкти та колбеки</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        h1, h2 {
+            color: #0056b3;
+        }
+        pre {
+            background-color: #e9ecef;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+        .result {
+            background-color: #d4edda;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-left: 5px solid #28a745;
+        }
+    </style>
+</head>
+<body>
+    <h1>Лабораторна робота №4</h1>
+    <h2>Тема:</h2>
+    <p>ОБ'ЄКТ. МЕТОДИ ОБ'ЄКТА. МАСИВ ОБ'ЄКТІВ. ДЕСТРУКТУРИЗАЦІЯ ОБ'ЄКТІВ. CALLBACK. СТРІЛОЧНІ ФУНКЦІЇ. СТРІЛОЧНІ ФУНКЦІЇ ЯК КОЛБЕКИ. ПЕРЕБИРАЮЧІ МЕТОДИ МАСИВУ</p>
+
+    <h2>Завдання (варіант 5):</h2>
+    <p>Напишіть функцію, яка приймає масив об'єктів і повертає новий масив. Зробіть знижку 20% на всі фрукти у масиві. Надайте <code>id</code> для кожного продукту.</p>
+
+    <h3>Початковий масив:</h3>
+    <pre><code>const fruits = [
+  { name: "apple", price: 200 },
+  { name: "orange", price: 300 },
+  { name: "grapes", price: 750 },
+];</code></pre>
+
+    <h3>JavaScript-функція:</h3>
+    <pre><code>const fruits = [
+  { name: "apple", price: 200 },
+  { name: "orange", price: 300 },
+  { name: "grapes", price: 750 },
+];
+
+const applyDiscountAndAddId = (items) => {
+  return items.map((item, index) => ({
+    id: index + 1,
+    name: item.name,
+    price: item.price * 0.8
+  }));
+};
+
+const discountedFruits = applyDiscountAndAddId(fruits);
+console.log(discountedFruits);</code></pre>
+
+    <h3>Результат виконання:</h3>
+    <div class="result" id="output"></div>
+
+    <script>
+        const fruits = [
+          { name: "apple", price: 200 },
+          { name: "orange", price: 300 },
+          { name: "grapes", price: 750 },
+        ];
+
+        const applyDiscountAndAddId = (items) => {
+          return items.map((item, index) => ({
+            id: index + 1,
+            name: item.name,
+            price: item.price * 0.8
+          }));
+        };
+
+        const discountedFruits = applyDiscountAndAddId(fruits);
+
+        document.getElementById("output").textContent = JSON.stringify(discountedFruits, null, 2);
+    </script>
+</body>
+</html>
