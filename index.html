@@ -651,7 +651,71 @@
 
 
 
-            <div id="lab5" class="section">Лабораторна робота №5: (порожня)</div>
+            <div id="lab5" class="section">
+                <h1 id="meta5">Лабораторна робота №5.1</h1>
+                <p><strong>Тема:</strong> Класи. Об'єктна модель документа (DOM). Події. Об'єкт події. Делегування подій. Throttle.</p>
+
+                <p><strong>Мета:</strong></p>
+                <ul>
+                    <li>Опанувати роботу з DOM-деревом, подіями та об'єктами подій у JavaScript.</li>
+                    <li>Реалізувати делегування подій через <code>window</code>.</li>
+                    <li>Працювати зі стрілочними функціями та callback.</li>
+                </ul>
+
+                <h2>Завдання (Варіант 5)</h2>
+                <p>У HTML-документі реалізовано:</p>
+                <ul>
+                    <li>текст з класом <code>taskTitle</code></li>
+                    <li><code>&lt;div id="place"&gt;</code> — елемент, який треба відслідковувати</li>
+                    <li>слухач події click, прив'язаний до <code>window</code>, який визначає, чи було натиснуто саме по <code>div#place</code></li>
+                </ul>
+
+                <p><strong>WEB-документ:</strong> 
+                    <a href="lab5-events.html" target="_blank">Перейти до демонстрації (lab5-events.html)</a>
+                </p>
+
+                <h3>JavaScript-фрагмент коду:</h3>
+                <pre><code>
+            window.addEventListener("click", function(event) {
+            const log = document.getElementById("log");
+            if (event.target.id === "place") {
+                log.textContent = "✅ Ви клікнули по div з id='place'.";
+            } else {
+                log.textContent = "❌ Ви клікнули не по div з id='place'.";
+            }
+            });
+                </code></pre>
+
+                <h3>HTML-структура:</h3>
+                <pre><code>
+            &lt;div class="taskTitle"&gt;ЗАВДАННЯ 5&lt;/div&gt;
+            &lt;div id="place"&gt;&lt;/div&gt;
+            &lt;div class="log" id="log"&gt;Клікніть у будь-яке місце...&lt;/div&gt;
+                </code></pre>
+
+                <h3>Скріншот правильного кліку (по <code>#place</code>):</h3>
+                <img src="img/lab5-correct-click.png" alt="Правильний клік" width="650">
+
+                <h3>Скріншот неправильного кліку (поза <code>#place</code>):</h3>
+                <img src="img/lab5-wrong-click.png" alt="Неправильний клік" width="600">
+
+                <h2 id="conclusion5">Висновки до Лабораторної роботи №5</h2>
+                <ul>
+                    <li>Було успішно реалізовано відстеження подій на рівні <code>window</code>, що є основою делегування подій.</li>
+                    <li>Використання <code>event.target.id</code> дозволяє точно визначити, по якому елементу відбулось натискання.</li>
+                    <li>Реалізація зроблена за допомогою стрілочної функції та запису логіки у функціональному стилі.</li>
+                    <li>Візуальна перевірка (через кольорові блоки та текст повідомлень) значно полегшує розуміння результатів.</li>
+                </ul>
+            </div>
+
+
+
+
+
+
+
+
+
             <div id="lab6" class="section">Лабораторна робота №6: (порожня)</div>
             <div id="lab7" class="section">Лабораторна робота №7: (порожня)</div>
             <div id="lab8" class="section">Лабораторна робота №8: (порожня)</div>
