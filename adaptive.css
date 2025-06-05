@@ -1,0 +1,38 @@
+/* Базова мобільна версія */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.block {
+  background-color: #cce5ff;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Планшетна версія */
+@media (min-width: 600px) {
+  .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .block {
+    flex: 1 1 45%;
+  }
+}
+
+/* Десктопна версія */
+@media (min-width: 1024px) {
+  .block {
+    flex: 1 1 30%;
+    background-color: #b3e6b3;
+  }
+}
