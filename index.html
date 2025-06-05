@@ -58,8 +58,112 @@
         .section.active {
             display: block;
         }
+
+
+ч
+
+
+
+
+
+        /* Відступи для заголовків та секцій лабораторної 2 */
+        #lab2 h2, #lab2 h3 {
+            margin-top: 100px;
+            margin-bottom: 10px;
+        }
+
+        #lab2 p, #lab2 ul, #lab2 pre, #lab2 div, #lab2 span {
+            margin-bottom: 15px;
+        }
+
+
+
+
+
+
+.hidden {
+    display: none;
+}
+
+
+
     </style>
 </head>
+
+
+
+
+
+
+<script>
+    function showSection(id) {
+        document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        updateSidebar(id); // ← це було втрачено
+    }
+
+
+    function scrollToSection(id) {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function updateSidebar(labId) {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.innerHTML = ""; // Очистити
+
+        let buttons = [];
+
+        if (labId === "lab1") {
+            buttons = [
+                { id: "desc", label: "Опис предметного середовища" },
+                { id: "meta", label: "Тема, мета, місце" },
+                { id: "structure", label: "СТРУКТУРА ДОКУМЕНТА" },
+                { id: "table", label: "HTML-код ТАБЛИЦІ" },
+                { id: "form", label: "HTML-код ФОРМИ" },
+                { id: "image", label: "HTML-код ЗОБРАЖЕННЯ" },
+                { id: "conclusion", label: "ВИСНОВКИ" }
+            ];
+        }
+
+        if (labId === "lab2") {
+            buttons = [
+                { id: "meta", label: "Тема, мета, місце" },
+                { id: "style-ways", label: "Способи підключення стилів" },
+                { id: "selectors", label: "СЕЛЕКТОРИ" },
+                { id: "tag-selectors", label: "Селектори тегу" },
+                { id: "class-selectors", label: "Селектори класу" },
+                { id: "id-selectors", label: "Селектори ідентифікаторів" },
+                { id: "other-selectors", label: "Інші селектори" },
+                { id: "css-styles", label: "CSS: Шрифти Текст Таблиці Фон Контур" },
+                { id: "conclusion", label: "Висновки до ЛР №2" }
+            ];
+        }
+
+        if (buttons.length > 0) {
+            sidebar.classList.remove("hidden"); // показати
+            for (let btn of buttons) {
+                const b = document.createElement("button");
+                b.textContent = btn.label;
+                b.onclick = () => scrollToSection(btn.id);
+                sidebar.appendChild(b);
+            }
+        } else {
+            sidebar.classList.add("hidden"); // приховати
+        }
+    }
+
+    // Виклик для першої лабораторної (щоб відразу показувалось)
+    document.addEventListener("DOMContentLoaded", () => updateSidebar("lab1"));
+</script>
+
+
+
+
+
+
+
+
 <body>
     <header>
         <h1>ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ</h1>
@@ -80,15 +184,13 @@
     </div>
 
     <div class="container">
-        <div class="sidebar">
-            <button onclick="scrollToSection('desc')">Опис предметного середовища</button>
-            <button onclick="scrollToSection('meta')">Тема, мета, місце</button>
-            <button onclick="scrollToSection('structure')">СТРУКТУРА ДОКУМЕНТА</button>
-            <button onclick="scrollToSection('table')">HTML-код ТАБЛИЦІ</button>
-            <button onclick="scrollToSection('form')">HTML-код ФОРМИ</button>
-            <button onclick="scrollToSection('image')">HTML-код ЗОБРАЖЕННЯ</button>
-            <button onclick="scrollToSection('conclusion')">ВИСНОВКИ</button>
+
+
+        <div class="sidebar hidden" id="sidebar">
+            <!-- Бокове меню буде створюватись автоматично -->
         </div>
+
+
         <div class="content">
             <div id="lab1" class="section active">
                 <h2 id="desc">Опис предметного середовища</h2>
@@ -144,7 +246,105 @@
                 </ul>
             </div>
 
-            <div id="lab2" class="section">Лабораторна робота №2: (порожня)</div>
+
+
+
+
+
+
+            <div id="lab2" class="section active">
+                <h1 id="meta">Лабораторна робота №2</h1>
+                <p><strong>Тема:</strong> Каскадні таблиці стилів. Селектори. Ідентифікатори. Стильове оформлення тексту</p>
+                <p><strong>Мета:</strong> Придбати навички використання CSS для оформлення елементів HTML-документа</p>
+
+                <h2 id="style-ways">Способи підключення стилів</h2>
+                <ul>
+                    <li>Вбудований стиль (inline)</li>
+                    <li>Внутрішній стиль (у тегу &lt;style&gt;)</li>
+                    <li>Зовнішній стиль (через файл .css)</li>
+                </ul>
+
+                <h2 id="selectors">СЕЛЕКТОРИ</h2>
+
+                <h3 id="tag-selectors">Селектори тегу</h3>
+                <p>CSS:</p>
+                <pre>p {
+                color: blue;
+                font-weight: bold;
+            }</pre>
+                <p>HTML:</p>
+                <pre>&lt;p&gt;Це абзац з синім жирним текстом&lt;/p&gt;</pre>
+                <p><strong>Результат:</strong></p>
+                <p style="color: blue; font-weight: bold;">Це абзац з синім жирним текстом</p>
+
+                <h3 id="class-selectors">Селектори класу</h3>
+                <p>CSS:</p>
+                <pre>.highlight {
+                background-color: yellow;
+            }</pre>
+                <p>HTML:</p>
+                <pre>&lt;div class="highlight"&gt;Підсвічений елемент&lt;/div&gt;</pre>
+                <p><strong>Результат:</strong></p>
+                <div style="background-color: yellow;">Підсвічений елемент</div>
+
+                <h3 id="id-selectors">Селектори ідентифікаторів</h3>
+                <p>CSS:</p>
+                <pre>#main-title {
+                text-align: center;
+                font-size: 24px;
+            }</pre>
+                <p>HTML:</p>
+                <pre>&lt;h1 id="main-title"&gt;Головний заголовок&lt;/h1&gt;</pre>
+                <p><strong>Результат:</strong></p>
+                <h1 style="text-align: center; font-size: 24px;">Головний заголовок</h1>
+
+                <h3 id="other-selectors">Інші селектори</h3>
+                <p>CSS:</p>
+                <pre>
+            ul > li {
+                list-style-type: square;
+            }
+            a[href] {
+                color: green;
+            }
+            * {
+                box-sizing: border-box;
+            }
+                </pre>
+                <p><strong>Результат:</strong></p>
+                <ul>
+                    <li>Елемент 1</li>
+                    <li>Елемент 2</li>
+                </ul>
+                <a href="https://example.com" style="color: green;">Посилання зі стилем</a>
+
+                <h2 id="css-styles">CSS: Шрифти, Текст, Таблиці, Фон, Контур, Списки, CSS Просунутий</h2>
+                <p>CSS властивості оформлення:</p>
+                <ul>
+                    <li><strong>Шрифт:</strong> <span style="font-family: Arial;">font-family: 'Arial'</span></li>
+                    <li><strong>Фон:</strong> <span style="background-color: #f0f0f0;">background-color: #f0f0f0</span></li>
+                    <li><strong>Колір тексту:</strong> <span style="color: #333;">color: #333</span></li>
+                    <li><strong>Контур:</strong> <span style="border: 1px solid black; padding: 2px;">border: 1px solid black</span></li>
+                    <li><strong>Списки:</strong>
+                        <ul style="list-style-type: circle;">
+                            <li>Елемент списку</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h2 id="conclusion">Висновки до ЛР №2</h2>
+                <ul>
+                    <li>Розглянуто способи підключення CSS</li>
+                    <li>Освоєно селектори: тегу, класу, ідентифікатора, сусідні, дочірні, атрибута</li>
+                    <li>Застосовано стилі для тексту, таблиць, фону, списків</li>
+                    <li>Створено демонстрації CSS без порушення попередніх лабораторних</li>
+                </ul>
+            </div>
+
+
+
+
+
             <div id="lab3" class="section">Лабораторна робота №3: (порожня)</div>
             <div id="lab4" class="section">Лабораторна робота №4: (порожня)</div>
             <div id="lab5" class="section">Лабораторна робота №5: (порожня)</div>
@@ -159,6 +359,7 @@
         function showSection(id) {
             document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
             document.getElementById(id).classList.add('active');
+            updateSidebar(id);
         }
 
         function scrollToSection(id) {
